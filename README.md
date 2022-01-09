@@ -1,1 +1,5 @@
-# Battery-health-monitoring-system
+# Battery Health Monitoring System
+
+An LTC6802-2 battery stack monitoring chip (http://cds.linear.com/docs/en/datasheet/68022fa.pdf) is used in the Battery Health Monitoring System. This device is capable of monitoring and balancing a lithium battery pack with no more than 12 cells. The chip registers, on the other hand, must be programmed using a microcontroller. SPI is used for communication. For added security, a digital isolator between the monitoring chip and the microcontroller, such as the Si8441AB (https://www.silabs.com/Support%20Documents/TechnicalDocs/si844x.pdf), can be used. The LTC6802-2 chip delivers voltage data to the microcontroller via the SPI interface once it has been set up. The Arduino Uno is used as the microcontroller in this project.
+
+The code for the Arduino is included in the repo. We must first populate the registers with the Over and Under voltage circumstances' values. There are numerous different setup options available. Please see the LTC6802-2 datasheet for further information. We begin by providing the LTC6802 chip's address. Because we're only utilising one in our design, the address is 0 or 0x80, as indicated by the chip's address pins (A0,A1,A2,A3). Following that, we run the WRITE command, which writes the value of each configuration register.
